@@ -17,7 +17,7 @@
     width: 80%;
     display: block;
     margin: auto;
-    padding-top: 100px;
+    padding-top: 12%;
 }
 
 .content-section {
@@ -26,12 +26,15 @@
 }
 
 .image-section {
+    padding-top: 6%;
     float: right;
     width: 40%;
+    padding-left: 10%;
 }
 
 .image-section img {
-    width: 100%;
+    padding-bottom: 100%;
+    width: 80%;
     height: auto;
 }
 

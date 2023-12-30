@@ -119,15 +119,16 @@ body{
 	}
 }
 @media screen and (max-width: 900px){
-	.cart{
-		flex-direction: column;
+		.cart{
+			flex-direction: column;
+		}
+		.cart-total{
+			margin-left: 0;
+			margin-bottom: 20px;
 	}
-	.cart-total{
-		margin-left: 0;
-		margin-bottom: 20px;
-}
 @media screen and (max-width: 12220px){
-	.container{
-		max-width: 95%;
-    }
+		.container{
+			max-width: 95%;
+		}
+	}
 }
