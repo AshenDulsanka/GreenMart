@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%
+if (session.getAttribute("name") == null){
+	response.sendRedirect("login.jsp");
+}
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +16,7 @@
 
         <!--Stylesheet-->
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
         <!--Favicon-->
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -50,14 +58,25 @@
                         Login
                     </a>
                 </li>
+                
+                <li>
+                    <a href="signup.jsp">
+                        Sign&nbsp;Up
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="logout">
+                        Logout
+                    </a>
+                </li>
 			</ul>
 
             <!--right-nav-(cart-like)-->
             <div class="right-nav">
-                <!--car-->
+                <!--cart-->
                 <a href="ShoppingCart.jsp" class="cart">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span>2</span>
                 </a>
             </div>
         </nav>
