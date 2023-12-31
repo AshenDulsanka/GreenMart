@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<%
-if (session.getAttribute("name") == null){
-	response.sendRedirect("login.jsp");
-}
-%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,7 +47,15 @@ if (session.getAttribute("name") == null){
                     </a>
                 </li>
 				
-                <li>
+				<%
+				if (session.getAttribute("name") != null){%>
+	                <li>
+	                    <a href="logout">
+	                        Logout
+	                    </a>
+	                </li>
+				<%} else {%>
+					<li>
                     <a href="login.jsp">
                         Login
                     </a>
@@ -64,12 +66,7 @@ if (session.getAttribute("name") == null){
                         Sign&nbsp;Up
                     </a>
                 </li>
-                
-                <li>
-                    <a href="logout">
-                        Logout
-                    </a>
-                </li>
+				<%}%>
 			</ul>
 
             <!--right-nav-(cart-like)-->
