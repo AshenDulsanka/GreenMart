@@ -53,7 +53,7 @@
 
                 <div class = "image-section">
                     <a href = 'index.jsp'>
-                        <img src = 'Greenmart.png' alt = 'GreenMart' style = 'cursor: pointer;'>
+                        <img src = 'images/Greenmart.png' alt = 'GreenMart' style = 'cursor: pointer;'>
                     </a>
                 </div>
             </div>
