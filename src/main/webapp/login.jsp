@@ -49,10 +49,7 @@
 										placeholder="Password" required="required"/>
 								</div>
 								<div class="form-group">
-									<input type="checkbox" name="remember-me" id="remember-me"
-										class="agree-term" /> <label for="remember-me"
-										class="label-agree-term"><span><span></span></span>Remember
-										me</label>
+									<a href="forgotPassword.jsp">Forgot Password?</a>
 								</div>
 								<div class="form-group form-button">
 									<input type="submit" name="signin" id="signin"
@@ -77,11 +74,15 @@
 			if (status == "Failed"){
 				swal("Sorry", "Wrong email or password", "error");
 			}
-			if (status == "invalidEmail"){
+			else if (status == "invalidEmail"){
 				swal("Sorry", "Please enter email", "error");
 			}
-			if (status == "invalidPassword"){
+			else if (status == "invalidPassword"){
 				swal("Sorry", "Please enter password", "error");
+			}else if (status == "resetSuccess"){
+				swal("Congratulations", "Password Reset Successful", "success");
+			}else if (status == "resetFailed"){
+				swal("Sorry", "Password Reset Failed", "error");
 			}
 		</script>
 	</body>
