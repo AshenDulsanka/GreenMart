@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.greenmart.connection.*;
+
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -60,8 +62,7 @@ public class SignupServlet extends HttpServlet {
 		} 
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/greenmart?useSSL=false", "root", "");
+			con = dbCon.getConnection();
 			PreparedStatement pst = con.prepareStatement("INSERT INTO customers(name, email, password, contactNo, address) VALUES (?,?,?,?,?)");
 			pst.setString(1, uname);
 			pst.setString(2, uemail);

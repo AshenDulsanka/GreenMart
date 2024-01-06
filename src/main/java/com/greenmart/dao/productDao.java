@@ -13,12 +13,11 @@ public class productDao {
 	private ResultSet rs;
 	
 	public productDao(Connection con) {
-		super();
 		this.con = con;
 	}
 	
 	public List<ProductModel> getAllProducts(){
-		List<ProductModel> products = new ArrayList<ProductModel>();
+		List<ProductModel> products = new ArrayList<>();
 		
 		try {
 			query = "SELECT * FROM products";
@@ -38,9 +37,62 @@ public class productDao {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
+        } 
+		return products;
+	}
+	
+	public List<CartModel> getCartProducts(ArrayList<CartModel> cartList){
+		List<CartModel> products = new ArrayList<CartModel>();
+		
+		try {
+			if(cartList.size() > 0) {
+				for(CartModel item:cartList) {
+					query = "SELECT * FROM products WHERE ProductID = ?";
+					pst = this.con.prepareStatement(query);
+					pst.setInt(1, item.getProductID());
+					rs = pst.executeQuery();
+					
+					while(rs.next()) {
+						CartModel row = new CartModel();
+						row.setProductID(rs.getInt("ProductID"));
+						row.setName(rs.getString("name"));
+						row.setPrice(rs.getDouble("price") * item.getQuantity());
+						row.setQuantity(item.getQuantity());
+						products.add(row);
+					}
+				}
+			}
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+//			e.printStackTrace();
 		}
 		
 		return products;
+	}
+	
+	public double getTotalCartPrice(ArrayList<CartModel> cartList) {
+		double sum = 0;
+		
+		try {
+			if(cartList.size() > 0) {
+				for(CartModel item:cartList) {
+					query = "SELECT price FROM products WHERE ProductID = ?";
+					pst = this.con.prepareStatement(query);
+					pst.setInt(1, item.getProductID());
+					rs = pst.executeQuery();
+					
+					while(rs.next()) {
+						sum += rs.getDouble("price") * item.getQuantity();
+					}
+				}
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return sum;
 	}
 	
 	public ProductModel getProductById(int productId) {
@@ -62,8 +114,8 @@ public class productDao {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-        }
+        	e.printStackTrace();
+        } 
 
         return product;
     }

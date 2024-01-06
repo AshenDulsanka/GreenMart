@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.greenmart.connection.*;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -36,10 +37,9 @@ public class LoginServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
-		
+		Connection con = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/greenmart?useSSL=false", "root", "");
+			con = dbCon.getConnection();
 			PreparedStatement pst = con.prepareStatement("SELECT * FROM customers WHERE email = ? AND password = ?");
 			
 			pst.setString(1, uemail);
