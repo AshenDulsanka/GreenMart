@@ -80,7 +80,7 @@
 								</form>
 							</td>
 							<td>
-								<a href = "" class = "btn btn-sm btn-danger">Remove</a> 
+								<a href = "removecart?id=<%= c.getProductID() %>" class = "btn btn-sm btn-danger">Remove</a> 
 							</td>
 						</tr>
 						<%}
