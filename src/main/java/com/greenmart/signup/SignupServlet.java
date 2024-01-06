@@ -84,12 +84,6 @@ public class SignupServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 		
 	}

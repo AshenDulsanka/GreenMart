@@ -27,7 +27,7 @@
 					<div class="signin-content">
 						<div class="signin-image">
 							<figure>
-								<img src="images/Greenmart.png" alt="sing up image">
+								<a href="index.jsp"><img src="images/Greenmart.png" alt="sing up image"></a>
 							</figure>
 							<a href="signup.jsp" class="signup-image-link">Create an
 								account</a>

@@ -49,20 +49,13 @@
 										placeholder="Repeat your password" required="required"/>
 								</div>
 								<div class="form-group">
-									<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
+									<label for="contact"><i class="zmdi zmdi-phone"></i></label>
 									<input type="text" name="contact" id="contact"
 										placeholder="Contact no" required="required"/>
 								</div>
 								<div class="form-group">
-									<label for="address"><i class="zmdi zmdi-email"></i></label> <input
+									<label for="address"><i class="zmdi zmdi-google-maps"></i></label> <input
 										type="text" name="address" id="address" placeholder="Your Address" required="required"/>
-								</div>
-								<div class="form-group">
-									<input type="checkbox" name="agree-term" id="agree-term"
-										class="agree-term" /> <label for="agree-term"
-										class="label-agree-term"><span><span></span></span>I
-										agree all statements in <a href="#" class="term-service">Terms
-											of service</a></label>
 								</div>
 								<div class="form-group form-button">
 									<input type="submit" name="signup" id="signup"
