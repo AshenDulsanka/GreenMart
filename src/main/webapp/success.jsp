@@ -3,7 +3,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Error</title>
+	    <title>Payment Success</title>
 	    
         <!--Favicon-->
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -17,15 +17,15 @@
 	        }
 	
 	        h1 {
-	            color: red;
+	            color: green;
 	            margin-bottom: 20px;
 	        }
 	    </style>
 	</head>
 	<body>
 	    <div class="container">
-	        <h1>Oops! Something went wrong.</h1>
-	        <p>We encountered an error while processing your request.</p>
+	        <h1>Payment Successful!</h1>
+	        <p>Your order has been successfully processed.</p>
 	    </div>
 	
 	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

@@ -27,7 +27,7 @@
 					<div class="signin-content">
 						<div class="signin-image">
 							<figure>
-								<img src="images/Greenmart.png" alt="sing up image">
+								<a href="index.jsp"><img src="images/Greenmart.png" alt="sing up image"></a>
 							</figure>
 							<a href="signup.jsp" class="signup-image-link">Create an
 								account</a>
@@ -74,11 +74,15 @@
 			if (status == "Failed"){
 				swal("Sorry", "Wrong email or password", "error");
 			}
-			if (status == "invalidEmail"){
+			else if (status == "invalidEmail"){
 				swal("Sorry", "Please enter email", "error");
 			}
-			if (status == "invalidPassword"){
+			else if (status == "invalidPassword"){
 				swal("Sorry", "Please enter password", "error");
+			}else if (status == "resetSuccess"){
+				swal("Congratulations", "Password Reset Successful", "success");
+			}else if (status == "resetFailed"){
+				swal("Sorry", "Password Reset Failed", "error");
 			}
 		</script>
 	</body>

@@ -17,8 +17,6 @@
 	</head>
 	<body>
 	
-		<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
-	
 		<div class="main">
 	
 			<!--Sign-up-form-->
@@ -28,34 +26,37 @@
 						<div class="signup-form">
 							<h2 class="form-title">Sign up</h2>
 						
-							<form method="post" action="signup" class="register-form"
+							<form method="" action="" class="register-form"
 								id="register-form">
 								<div class="form-group">
 									<label for="name"><i
 										class="zmdi zmdi-account material-icons-name"></i></label> <input
-										type="text" name="name" id="name" placeholder="Your Name" required="required"/>
+										type="text" name="name" id="name" placeholder="Your Name" />
 								</div>
 								<div class="form-group">
 									<label for="email"><i class="zmdi zmdi-email"></i></label> <input
-										type="email" name="email" id="email" placeholder="Your Email" required="required"/>
+										type="email" name="email" id="email" placeholder="Your Email" />
 								</div>
 								<div class="form-group">
 									<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
-										type="password" name="pass" id="pass" placeholder="Password" required="required"/>
+										type="password" name="pass" id="pass" placeholder="Password" />
 								</div>
 								<div class="form-group">
 									<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
 									<input type="password" name="re_pass" id="re_pass"
-										placeholder="Repeat your password" required="required"/>
+										placeholder="Repeat your password" />
 								</div>
 								<div class="form-group">
-									<label for="contact"><i class="zmdi zmdi-phone"></i></label>
+									<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
 									<input type="text" name="contact" id="contact"
-										placeholder="Contact no" required="required"/>
+										placeholder="Contact no" />
 								</div>
 								<div class="form-group">
-									<label for="address"><i class="zmdi zmdi-google-maps"></i></label> <input
-										type="text" name="address" id="address" placeholder="Your Address" required="required"/>
+									<input type="checkbox" name="agree-term" id="agree-term"
+										class="agree-term" /> <label for="agree-term"
+										class="label-agree-term"><span><span></span></span>I
+										agree all statements in <a href="#" class="term-service">Terms
+											of service</a></label>
 								</div>
 								<div class="form-group form-button">
 									<input type="submit" name="signup" id="signup"
@@ -79,35 +80,5 @@
 		<!-- JS -->
 		<script src="vendor/jquery/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<link rel="stylesheet" href="alert/dist/sweetalert.css">
-		
-		<script type = "text/javascript">
-			var status = document.getElementById("status").value;
-			if (status == "success"){
-				swal("Congratulations", "Account Created Successfully", "success");
-			}
-			if (status == "invalidName"){
-				swal("Sorry", "Please enter name", "error");
-			}
-			if (status == "invalidEmail"){
-				swal("Sorry", "Please enter email", "error");
-			}
-			if (status == "invalidPassword"){
-				swal("Sorry", "Please enter password", "error");
-			}
-			if (status == "invalidConfirmPassword"){
-				swal("Sorry", "Please enter the previous password", "error");
-			}
-			if (status == "invalidMobile"){
-				swal("Sorry", "Please enter mobile number", "error");
-			}
-			if (status == "invalidMobileLength"){
-				swal("Sorry", "Please enter a valid mobile number", "error");
-			}
-			if (status == "invalidAddress"){
-				swal("Sorry", "Please enter address", "error");
-			}
-		</script>
 	</body>
 </html>

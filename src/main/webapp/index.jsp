@@ -4,11 +4,20 @@
 <%@ page import = "com.greenmart.model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-
+    
 <%
 	productDao pd = new productDao(dbCon.getConnection());
 	List<ProductModel> products = pd.getAllProducts();
+	
+	UserModel auth = (UserModel) request.getSession().getAttribute("auth");
+	if (auth != null){
+		request.setAttribute("auth", auth);
+	}
+	
+	ArrayList<CartModel> cart_list = (ArrayList<CartModel>) session.getAttribute("cart-list");
+	if(cart_list != null){
+		request.setAttribute("cart_list", cart_list);
+	}
 %>
 
 <!DOCTYPE html>
@@ -75,6 +84,12 @@
 
             <!--right-nav-(cart-like)-->
             <div class="right-nav">
+                <!--cart-->
+                <a href="ShoppingCart.jsp" class="cart">
+                    <i class="fa-solid fa-cart-shopping">
+                    	<span>${cart_list.size() }</span>
+                    </i>
+                </a>
             </div>
         </nav>
         <!--nav-end-->
@@ -116,10 +131,10 @@
                             <img alt="<%= p.getName()%>" src="<%= p.getImage() %>">
                             <strong><%= p.getName() %></strong>
                             <span class="quantity"><%= p.getSize() %></span>
-                            <span class="price">Rs. <%= p.getPrice() %></span>
+                            <span class="price">$ <%= p.getPrice() %></span>
                             <!--cart-btn-->
-                            <a href="checkout.jsp" class="cart-btn">
-                                Buy Now
+                            <a href="add-to-cart?id=<%= p.getProductID() %>" class="cart-btn">
+                                Add to cart
                             </a>
                         </div>
                 		<%}
@@ -127,7 +142,7 @@
             %>
             </div>
         </section>
-        <!--products-end-->     
+        <!--products-end-->  
         
         <!--footer-->
         <footer>

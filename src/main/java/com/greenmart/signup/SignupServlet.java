@@ -1,6 +1,7 @@
 package com.greenmart.signup;
 
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.greenmart.connection.dbCon;
+import com.greenmart.connection.*;
 
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
@@ -83,12 +84,6 @@ public class SignupServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 		
 	}

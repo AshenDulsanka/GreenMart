@@ -2,6 +2,7 @@ package com.greenmart.signup;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,8 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.greenmart.connection.dbCon;
-
+import com.greenmart.connection.*;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -37,9 +37,9 @@ public class LoginServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
-		
+		Connection con = null;
 		try {
-			Connection con = dbCon.getConnection();
+			con = dbCon.getConnection();
 			PreparedStatement pst = con.prepareStatement("SELECT * FROM customers WHERE email = ? AND password = ?");
 			
 			pst.setString(1, uemail);
@@ -49,13 +49,11 @@ public class LoginServlet extends HttpServlet {
 			if(rs.next()) {
 				session.setAttribute("name", rs.getString("name"));
 				dispatcher = request.getRequestDispatcher("index.jsp");
-				dispatcher.forward(request, response);
-		        return;
 			} else {
 				request.setAttribute("status", "Failed");
 				dispatcher = request.getRequestDispatcher("login.jsp");
 			}
-
+			
 			dispatcher.forward(request, response);
 			
 		} catch (Exception e) {
